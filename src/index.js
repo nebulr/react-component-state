@@ -2,7 +2,6 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable class-methods-use-this */
 import { Component } from 'react';
-import merge from 'deepmerge';
 import uuidv1 from 'uuid/v1';
 
 import Store from './store';
@@ -20,7 +19,7 @@ export default class StateComponent extends Component {
   }
 
   updateState(obj) {
-    Store.state = merge(Store.state, obj);
+    Store.state = obj;
   }
 
   render() {
