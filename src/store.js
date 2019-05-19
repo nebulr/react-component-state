@@ -17,6 +17,10 @@ class Store {
   config(opt) {
     if (opt.storage != null) {
       this.__storage = opt.storage;
+      if (this.__storage === 'local') {
+        // eslint-disable-next-line no-undef
+        this.__state = JSON.parse(window.localStorage.getItem('react-component-state_state')) || {};
+      }
     }
   }
 
@@ -28,7 +32,7 @@ class Store {
     if (this.__storage != null) {
       if (this.__storage === 'local') {
         // eslint-disable-next-line no-undef
-        window.localStorage.setItem(key, value);
+        window.localStorage.setItem(key, JSON.stringify(value));
       }
     }
   }
