@@ -19,7 +19,7 @@ export default class StateComponent extends Component {
   }
 
   updateState(obj) {
-    Store.state = obj;
+    Store.state = Object.assign({}, Store.state, obj);
   }
 
   render() {
